@@ -1,0 +1,13 @@
+%h1 About hotel
+%p= @hotel.title
+%p= @hotel.rating
+-if @hotel.breakfast_included == 1
+  %p With breakfast
+-else
+  %p Without breakfast
+%p= @hotel.room_description
+%p= @hotel.price
+%p= @hotel.address
+
+%p= link_to 'Back', hotels_path
+

@@ -38,6 +38,10 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (6.0.3)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
@@ -78,6 +82,9 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -202,12 +209,15 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  better_errors
+  binding_of_caller
   byebug
   capybara (>= 2.1.0)
   coffee-rails (~> 4.1.0)
   haml
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   pg (= 0.15.1)
   pry
   rails (= 4.2.6)

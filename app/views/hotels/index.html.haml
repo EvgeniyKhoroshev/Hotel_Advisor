@@ -8,6 +8,7 @@
     %th Цена
     %th Адрес
     %th Удаление
+    %th Просмотр
   -@hotels.each do |hotel|
     %tr
       %td= hotel.title
@@ -19,4 +20,5 @@
       %td= hotel.room_description
       %td= hotel.price
       %td= hotel.address
-      %td= link_to 'Delete', hotels_path(hotel), method: :delete
+      %td= link_to 'Delete', hotel_path(hotel), method: :delete
+      %td= link_to 'Show', hotel_path(hotel)
