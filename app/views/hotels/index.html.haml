@@ -10,6 +10,7 @@
     %th Адрес
     %th Удаление
     %th Просмотр
+    %th Редактирование
   -@hotels.each do |hotel|
     %tr
       %td= hotel.title
@@ -20,3 +21,4 @@
       %td= hotel.address
       %td= link_to 'Delete', hotel_path(hotel), method: :delete, data: {confirm: 'R u sure ?'}
       %td= link_to 'Show', hotel_path(hotel)
+      %td= link_to 'Edit', edit_hotel_path(hotel)

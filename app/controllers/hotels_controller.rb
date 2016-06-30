@@ -21,11 +21,16 @@ class HotelsController < ApplicationController
   end
 
   def edit
-
+    @hotel = Hotel.find(params[:id])
   end
 
   def update
-
+    @hotel = Hotel.find(params[:id])
+    if @hotel.update permitted_params
+      redirect_to hotels_path
+    else
+      render :edit
+    end
   end
 
   def destroy
