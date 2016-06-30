@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.title_for_out{
+  text-align: center;
+  font-family: "Century Gothic";
+  font-size: 13pt;
+}
 .hotels{
   position: absolute;
   text-align: center;
@@ -24,8 +29,7 @@
 #caption{
   font-family: "Century Gothic";
   position: relative;
-  left: 45%;
-}
+text-align: center}
 
 #newHotel{
   font-family: "Century Gothic";

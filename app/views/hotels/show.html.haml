@@ -1,10 +1,11 @@
-%div.show
-  %h1=@hotel.title
-  %p= @hotel.rating
-  %p= @hotel.breakfast_included
-  %p= @hotel.room_description
-  %p= @hotel.price
-  %p= @hotel.address
+%h1#caption About hotel
+%p.title_for_out= 'Hotel title: '+@hotel.title
+%p.title_for_out= 'Hotel rating: '+@hotel.rating
+%p.title_for_out= @hotel.breakfast_included + ' breakfast'
+%p.title_for_out= 'Room description'+@hotel.room_description
+%p.title_for_out= 'Price of room'+@hotel.price.to_s
+%p.title_for_out= 'Address of hotel'+@hotel.address
 
-  %p#back= link_to 'Back', hotels_path
+%p= link_to 'Back', hotels_path
+
 
