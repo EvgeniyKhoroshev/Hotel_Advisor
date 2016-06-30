@@ -1,0 +1,29 @@
+// Place all the styles related to the hotels controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.hotels{
+  position: absolute;
+  left: 15%;
+  text-align: center;
+  font-family: "Century Gothic";
+  font-size: 14pt;
+  border: solid;
+  border-spacing: 0px 0px;
+}
+
+.hotels th{
+  padding: 10px;
+  border: solid 1px;
+}
+
+.hotels td{
+  padding: 10px;
+  border: solid 1px;
+}
+
+#caption{
+  font-family: "Century Gothic";
+  position: relative;
+  left: 45%;
+}
