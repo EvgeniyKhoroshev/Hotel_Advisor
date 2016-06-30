@@ -1,4 +1,5 @@
 %h1#caption Hotels
+%h4#newHotel= link_to 'Add new hotel', new_hotel_path
 %table.hotels
   %tr
     %th Название отеля
@@ -13,12 +14,9 @@
     %tr
       %td= hotel.title
       %td= hotel.rating
-      -if hotel.breakfast_included == 1
-        %td With breakfast
-      -else
-        %td Without breakfast
+      %td= hotel.breakfast_included
       %td= hotel.room_description
       %td= hotel.price
       %td= hotel.address
-      %td= link_to 'Delete', hotel_path(hotel), method: :delete
+      %td= link_to 'Delete', hotel_path(hotel), method: :delete, data: {confirm: 'R u sure ?'}
       %td= link_to 'Show', hotel_path(hotel)

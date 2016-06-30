@@ -3,7 +3,7 @@ class CreateHotels < ActiveRecord::Migration
     create_table :hotels do |t|
       t.string :title
       t.string :rating
-      t.integer :breakfast_included
+      t.string :breakfast_included
       t.text :room_description
       t.string :photo
       t.float :price

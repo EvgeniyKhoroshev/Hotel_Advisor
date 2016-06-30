@@ -1,0 +1,11 @@
+%h1#caption Add new hotel
+%div.add
+  = simple_form_for (@hotel) do |f|
+    =f.input :title, :label => 'Title'
+    =f.input :rating, :label => 'Rating'
+    =f.input :breakfast_included, as: :radio_buttons, collection: ['With','Without'], :label => 'Breakfast'
+    =f.input :price, :label => 'Price'
+    =f.input :address, :label => 'Address'
+    =f.input :room_description, :as => 'text', :label => 'Room description'
+    =f.button :submit, :value => 'Add hotel'
+  %p#back= link_to 'Back', hotels_path
