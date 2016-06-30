@@ -1,0 +1,22 @@
+%h1#caption Hotels
+%table.hotels
+  %tr
+    %th Название отеля
+    %th Рейтинг отеля
+    %th Завтраки
+    %th Описание комнат
+    %th Цена
+    %th Адрес
+    -#%th Удаление
+  -@hotels.each do |hotel|
+    %tr
+      %td= hotel.title
+      %td= hotel.rating
+      -if hotel.breakfast_included == 1
+        %td With breakfast
+      -else
+        %td Without breakfast
+      %td= hotel.room_description
+      %td= hotel.price
+      %td= hotel.address
+      -#%td= link_to 'Delete', hotels_path(hotel), method: :delete
