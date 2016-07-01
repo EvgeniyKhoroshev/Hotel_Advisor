@@ -9,13 +9,14 @@ group :development do
   gem 'sqlite3' , '1.3.11'
   gem 'rspec-rails', '>=2.13.1'
   gem 'pry'
-  gem "better_errors"
-  gem "binding_of_caller"
-  gem 'kaminari'
-  gem 'carrierwave'
-  gem 'mini_magick'
-  gem 'devise'
 end
+
+gem "better_errors"
+gem "binding_of_caller"
+gem 'kaminari'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'devise'
 
 group :test do
   gem 'selenium-webdriver', '>=2.35.1'
