@@ -1,0 +1,3 @@
+module HotelsHelper
+
+end

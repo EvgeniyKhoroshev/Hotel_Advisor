@@ -1,0 +1,25 @@
+%body.main-page
+  %div.main-page__head-line
+  %div.main-page__line
+    %div.main-page-head
+      %div.main-head__logo
+        %div.main-logo
+          =image_tag (src='logo.png'), :class => "main-logo__img"
+      %div.main-head__sign-up
+        %div.main-head__sign-up-button Sign Up
+      %div.main-head__name Hotel Advisor
+  %div.main-page__line
+    %div.main-page-head
+      %div.main__menu
+        %div.main__menu-button
+          =link_to 'All Hotels', all_hotel_path
+        %div.main__menu-button
+          =link_to 'Reserved'
+        %div.main__menu-button
+          =link_to 'Reserved'
+        %div.main__menu-button
+          =link_to 'Reserved'
+  %div.main-page__line
+    %div.main-page-head
+      %div.main-photo
+        =image_tag (src='mainphoto.jpg'), :class => "main-photo__img"
