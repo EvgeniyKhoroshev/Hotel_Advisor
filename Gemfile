@@ -12,6 +12,9 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'kaminari'
+  gem 'carrierwave'
+  gem 'mini_magick'
+  gem 'devise'
 end
 
 group :test do

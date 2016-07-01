@@ -20,7 +20,7 @@ class HotelsController < ApplicationController
   def create
     @hotel = Hotel.new(permitted_params)
     if @hotel.save
-      redirect_to hotels_path
+      redirect_to all_hotel_path
     else
       render :new
     end
@@ -33,7 +33,7 @@ class HotelsController < ApplicationController
   def update
     @hotel = Hotel.find(params[:id])
     if @hotel.update permitted_params
-      redirect_to hotels_path
+      redirect_to all_hotel_path
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class HotelsController < ApplicationController
 
   def destroy
     hotel = Hotel.find(params[:id]).destroy
-    redirect_to hotels_path
+    redirect_to all_hotel_path
   end
 
   private
