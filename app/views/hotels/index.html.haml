@@ -1,24 +1,25 @@
-%h1#caption Hotels
-%h4#newHotel= link_to 'Add new hotel', new_hotel_path
-%table.hotels
-  %tr
-    %th Название отеля
-    %th Рейтинг отеля
-    %th Завтраки
-    %th Описание комнат
-    %th Цена
-    %th Адрес
-    %th Удаление
-    %th Просмотр
-    %th Редактирование
-  -@hotels.each do |hotel|
-    %tr
-      %td= hotel.title
-      %td= hotel.rating
-      %td= hotel.breakfast_included
-      %td= hotel.room_description
-      %td= hotel.price
-      %td= hotel.address
-      %td= link_to 'Delete', hotel_path(hotel), method: :delete, data: {confirm: 'R u sure ?'}
-      %td= link_to 'Show', hotel_path(hotel)
-      %td= link_to 'Edit', edit_hotel_path(hotel)
+%body.main-page
+  %div.main-page__head-line
+  %div.main-page__line
+    %div.main-page-head
+      %div.main-head__logo
+        %div.main-logo
+          =image_tag (src='logo.png'), :class => "main-logo__img"
+      %div.main-head__sign-up
+        %div.main-head__sign-up-button Sign Up
+      %div.main-head__name Hotel Advisor
+  %div.main-page__line
+    %div.main-page-head
+      %div.main__menu
+        %div.main__menu-button
+          =link_to 'All Hotels', all_hotel_path
+        %div.main__menu-button
+          =link_to 'Reserved'
+        %div.main__menu-button
+          =link_to 'Reserved'
+        %div.main__menu-button
+          =link_to 'Reserved'
+  %div.main-page__line
+    %div.main-page-head
+      %div.main-photo
+        =image_tag (src='mainphoto.jpg'), :class => "main-photo__img"

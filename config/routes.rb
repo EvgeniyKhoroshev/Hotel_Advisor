@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   root 'hotels#index'
-  resources :hotels
+  resources :hotels;
+  get 'all_hotel' => 'hotels#all'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
