@@ -11,11 +11,13 @@ group :development do
 end
 
 gem "better_errors"
+gem 'simple_form'
 gem "binding_of_caller"
 gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
+gem 'haml'
 
 group :test do
   gem 'selenium-webdriver', '>=2.35.1'

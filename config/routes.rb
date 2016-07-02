@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'users/new'
-
-  root 'hotels#index'
   resources :hotels;
+  resources :users
+
+  root 'static_pages#index'
+
   get 'all_hotel' => 'hotels#all'
+  get 'signup' => 'users#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
