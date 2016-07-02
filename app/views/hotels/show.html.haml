@@ -1,11 +1,12 @@
 %div.main-page__head-line
   %div.article__center About hotel
   %p.title_for_out= 'Hotel title: '+@hotel.title
+  %p= image_tag @hotel.photo.url
   %p.title_for_out= 'Hotel rating: '+@hotel.rating
   %p.title_for_out= @hotel.breakfast_included + ' breakfast'
-  %p.title_for_out= 'Room description'+@hotel.room_description
-  %p.title_for_out= 'Price of room'+@hotel.price.to_s
-  %p.title_for_out= 'Address of hotel'+@hotel.address
+  %p.title_for_out= 'Room description: '+@hotel.room_description
+  %p.title_for_out= 'Price of room: '+@hotel.price.to_s
+  %p.title_for_out= 'Address of hotel: '+@hotel.address
 
   %p#back= link_to 'Back',  all_hotel_path
 

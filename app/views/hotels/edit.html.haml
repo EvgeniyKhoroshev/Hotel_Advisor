@@ -7,6 +7,7 @@
       =f.input :breakfast_included, as: :radio_buttons, collection: ['With','Without'], :label => 'Breakfast'
       =f.input :price, :label => 'Price'
       =f.input :address, :label => 'Address'
-      =f.input :room_description, :as => 'text', :label => 'Room description'
+      =f.input :room_description, :as => 'text', :label => 'Room description', :input_html => {:style => 'resize:none'}
+      =f.input :photo, :as => 'file', :label =>'Edit photo'
       =f.button :submit, :value => 'Edit hotel'
     %p#back= link_to 'Back', all_hotel_path
