@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
+
   root 'hotels#index'
   resources :hotels;
   get 'all_hotel' => 'hotels#all'
