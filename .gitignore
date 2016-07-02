@@ -10,6 +10,8 @@
 /tmp
 
 # Игнорирование прочих ненужных файлов.
+Gemfile
+Gemfile.lock
 database.yml
 doc/
 *.swp
