@@ -1,0 +1,14 @@
+%div.main-page__head-line
+  %br
+    %br
+  %div.article__center Update your profile
+  %div.edit-page__forms
+    = simple_form_for (@user) do |f|
+      =f.input :name, :label => 'Name'
+      =f.input :surname, :label => 'Surname'
+      =f.input :email, :label => 'Email'
+      =f.input :password, :label => 'Password'
+      =f.input :password_confirmation, :label => 'Confirm password'
+      =f.input :photo, :as => 'file', :label =>'Edit photo'
+      =f.button :submit, :value => 'Save changes'
+    %p.article__center= link_to 'Back', current_user

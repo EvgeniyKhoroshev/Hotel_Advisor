@@ -18,6 +18,9 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
 gem 'haml'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :test do
   gem 'selenium-webdriver', '>=2.35.1'

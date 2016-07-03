@@ -1,12 +1,16 @@
 %h1
+  %br
+    %br
   %div.alert_container
     -flash.each do |key,value|
       %div.alert_success= value
-%br
-  %br
 %p.article__center= @user.name + ' ' + @user.surname
 %p.article__center= @user.email
 -if @user.photo.url == nil
   %p.title_for_out= image_tag 'default_user_photo.png'
 -else
   %p.title_for_out= image_tag @user.photo.url
+-if current_user.admin?
+  %p.article__center Administrator
+  %p.article__center= link_to 'Show all users', users_path
+%p.article__center= link_to 'Back', root_path

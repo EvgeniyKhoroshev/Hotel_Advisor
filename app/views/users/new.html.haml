@@ -1,4 +1,6 @@
-%h1#caption Create new account
+%br
+  %br
+%h1.pages_caprions Create new account
 =simple_form_for (@user) do |f|
   =f.input :name, :label => 'Name'
   =f.input :surname, :label => 'Surname'
@@ -7,6 +9,4 @@
   =f.input :password_confirmation, :label => 'Confirm password'
   =f.input :photo, :as => 'file', :label => 'Upload photo'
   =f.button :submit, :value => 'Create'
-
-%p#back= link_to 'Back', root_path
 

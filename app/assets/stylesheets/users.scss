@@ -2,3 +2,34 @@
   position: absolute;
   left:50%;
 }
+
+.pages_caprions{
+  text-align: center;
+  font-family: "Century Gothic";
+  font-size: 20pt;
+}
+
+.alert_error{
+  text-align: center;
+  font-family: "Century Gothic";
+  font-size: 20pt;
+}
+
+.alert_success{
+  text-align: center;
+  font-family: "Century Gothic";
+  font-size: 20pt;
+}
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid black;
+    &:last-child {
+      border-bottom: 1px solid black;
+    }
+  }
+}
