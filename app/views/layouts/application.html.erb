@@ -7,8 +7,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="main-page">
-
-<%= yield %>
+  <nav>
+    <ul>
+      <% if signed_in? %>
+        <li class = 'main-head__sign-up'>
+          <div class = 'main-head__sign-up-button'><%= link_to 'Profile', current_user %></div>
+        </li>
+        <li class = 'main-head__sign-up'>
+          <div class = 'main-head__sign-up-button'><%= link_to 'Settings', '#' %></div>
+        </li>
+        <li class = 'main-head__sign-up'>
+          <div class = 'main-head__sign-up-button'><%= link_to 'Sign out', signout_path, method: 'delete' %></div>
+        </li>
+      <% else %>
+          <li class = 'main-head__sign-up'>
+            <div class = 'main-head__sign-up-button'><%= link_to 'Sign In', signin_path %></div>
+          </li>
+          <li class = 'main-head__sign-up'>
+            <div class = 'main-head__sign-up-button'><%= link_to 'Sign Up', signup_path %></div>
+          </li>
+      <% end %>
+      <li class = 'main-head__sign-up'>
+        <div class = 'main-head__sign-up-button'><%= link_to 'Home', root_path %></div>
+      </li>
+    </ul>
+  </nav>
+  <%= yield %>
 
 </body>
 </html>

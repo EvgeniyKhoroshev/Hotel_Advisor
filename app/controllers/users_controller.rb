@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new permitted_params
     if @user.save
+      sign_in @user
       flash[:success] = 'Registration complete!'
       redirect_to @user
     else
