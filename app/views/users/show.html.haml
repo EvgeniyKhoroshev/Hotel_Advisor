@@ -1,16 +1,30 @@
-%h1
-  %br
+%div.user
+  %div.user_inform
+    %h1
+      %br
+        %br
+      %div.alert_container
+        -flash.each do |key,value|
+          %div.alert_success= value
+    %h3 Current user
+    %p= @user.name + ' ' + @user.surname
+    %p= @user.email
+    -if @user.photo.url == nil
+      %p= image_tag 'default_user_photo.png'
+    -else
+      %p= image_tag @user.photo.url
+    %h4= link_to 'Add new hotel', new_hotel_path
+    -if current_user.admin?
+      %p Administrator
+      %p= link_to 'Show all users', users_path
+    %p= link_to 'Back', root_path
     %br
-  %div.alert_container
-    -flash.each do |key,value|
-      %div.alert_success= value
-%p.article__center= @user.name + ' ' + @user.surname
-%p.article__center= @user.email
--if @user.photo.url == nil
-  %p.title_for_out= image_tag 'default_user_photo.png'
--else
-  %p.title_for_out= image_tag @user.photo.url
--if current_user.admin?
-  %p.article__center Administrator
-  %p.article__center= link_to 'Show all users', users_path
-%p.article__center= link_to 'Back', root_path
+      %br
+  %div.user_hotels
+    -if @user_hotels != nil
+      %h3 Added hotels
+      -@user_hotels.each do |hotel|
+        %h4= hotel.title
+        %p= link_to 'Edit', edit_hotel_path(hotel)
+        %p= link_to 'Delete', hotel_path(hotel), method: :delete, data: {confirm: 'Are you sure ?'}
+      = will_paginate @user_hotels

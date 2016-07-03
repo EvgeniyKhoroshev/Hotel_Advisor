@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id]);
+    @user_hotels = find_all_by_user_email(Hotel.paginate(page: params[:page], :per_page => 3))
   end
 
   def create
@@ -84,6 +85,15 @@ class UsersController < ApplicationController
 
   def admin_user
     redirect_to(root_url) unless current_user.admin?
+  end
+
+  def find_all_by_user_email(hotels)
+    find_hotels = []
+    hotels.each do |h|
+      if h.user_email == current_user.email
+        find_hotels.push(h)
+      end
+    end
   end
 
 end

@@ -10,6 +10,7 @@
 .hotels{
   position: absolute;
   text-align: center;
+  left: 200px;
   font-family: "Century Gothic";
   font-size: 13pt;
   border: solid;
@@ -35,9 +36,8 @@
 
 #newHotel{
   font-family: "Century Gothic";
-  position: relative;
+  text-align: center;
   font-size: 14pt;
-  left: 15%;
 }
 
 .show{

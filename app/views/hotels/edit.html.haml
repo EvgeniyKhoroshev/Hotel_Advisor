@@ -10,4 +10,4 @@
       =f.input :room_description, :as => 'text', :label => 'Room description', :input_html => {:style => 'resize:none'}
       =f.input :photo, :as => 'file', :label =>'Edit photo'
       =f.button :submit, :value => 'Edit hotel'
-    %p#back= link_to 'Back', all_hotel_path
+    %p#back= link_to 'Back', current_user

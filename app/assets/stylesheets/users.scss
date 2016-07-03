@@ -33,3 +33,76 @@
     }
   }
 }
+
+.user{
+  font-family: "Century Gothic";
+}
+
+.user_inform{
+  position: absolute;
+  left:300px;
+  bottom: 78px;
+  font-size: 14pt;
+  text-align: center;
+}
+
+.user_hotels{
+  position: absolute;
+  font-size: 14pt;
+  text-align: center;
+  left:900px;
+  top:50px
+}
+
+//---------pagination-----------
+
+.pagination {
+  font-size: 13px;
+  float: right;
+  margin: 0;
+  padding: 3px 0 4px;
+}
+.pagination a,
+.pagination span {
+  padding: 3px 3px 2px;
+}
+.pagination .disabled {
+  background:none repeat scroll 0 0 transparent;
+  border:medium none;
+  color:#999999;
+  cursor:default;
+}
+.pagination a {
+  color:#3B5998;
+  cursor:pointer;
+  text-decoration:none;
+}
+.pagination a:hover {
+  background-color:#3B5998;
+  border-bottom:1px solid #3B5998;
+  border-color:#D8DFEA #D8DFEA #3B5998;
+  color:#FFFFFF;
+  text-decoration:none;
+}
+.pagination .current {}
+.pagination .current {
+  border-bottom:2px solid #3B5998;
+  border-color:#3B5998;
+  color:#3B5998;
+  font-weight:bold;
+  padding-left:2px;
+  padding-right:2px;
+}
+.pagination .current a:hover {
+  background-color:#3B5998;
+  color:#FFFFFF;
+}
+
+.pagination .prev_page {
+
+}
+.pagination .next_page {
+
+}
+
+//-----------end pagination------------
