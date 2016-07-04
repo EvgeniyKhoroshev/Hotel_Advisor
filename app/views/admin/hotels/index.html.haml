@@ -1,0 +1,18 @@
+-#%h1.article__center
+-#  %p All hotels
+-#%div.alert_container
+-#  -flash.each do |key,value|
+-#    %div.alert_error= value
+= will_paginate @hotels
+%ul.users
+  - @hotels.each do |hotel|
+    %li
+      -if hotel.photo.url == nil
+        =image_tag 'default_hotel_photo.jpg', :class => 'profile-page__current-hotel__photo'
+        %p= "Record '" + hotel.title + "' created by " + find_user_by_id(hotel.user_id).email
+        %p= link_to 'Delete', admin_hotel_path(hotel), method: :delete, data: { confirm: "Are you sure?" }
+      -else
+        = image_tag hotel.photo.url, :class => 'profile-page__current-hotel__photo'
+        %p= "Record '" + hotel.title + "' created by " + find_user_by_id(hotel.user_id).email
+        %p= link_to 'Delete', admin_hotel_path(hotel), method: :delete, data: { confirm: "Are you sure?" }
+= will_paginate @hotels
