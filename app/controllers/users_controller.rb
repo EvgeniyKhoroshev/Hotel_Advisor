@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id]);
-    @user_hotels = find_all_by_user_email(Hotel.paginate(page: params[:page], :per_page => 3))
+    @user_hotels = find_all_by_user_email(Hotel.paginate(page: params[:page], :per_page => 7))
   end
 
   def create
