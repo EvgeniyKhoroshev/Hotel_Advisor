@@ -87,14 +87,4 @@ class UsersController < ApplicationController
     redirect_to(root_url) unless current_user.admin?
   end
 
-  def find_all_by_user_email(email)
-    find_hotels = []
-    Hotel.all.each do |h|
-      if h.user_email == email
-        find_hotels.push(h)
-      end
-    end
-    find_hotels.paginate(page: params[:page], :per_page => 7)
-  end
-
 end

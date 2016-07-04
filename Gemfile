@@ -21,6 +21,7 @@ gem 'haml'
 gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'active_model_serializers'
 
 group :test do
   gem 'selenium-webdriver', '>=2.35.1'
