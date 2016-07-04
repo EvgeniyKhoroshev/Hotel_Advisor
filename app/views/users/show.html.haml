@@ -14,14 +14,14 @@
   %div.profile-page__current-user__text
     %p= @user.name + ' ' + @user.surname
     %p= @user.email
-    -if current_user.admin?
+    -if current_user.admin? && user_id_equals_current_user?(@user)
       %p Administrator
   %div.profile-page__current-user__buttons
     %h4= link_to 'Add new hotel', new_hotel_path
-    -if current_user.admin?
+    -if current_user.admin? && user_id_equals_current_user?(@user)
       %p= link_to 'Show all users', users_path
   %div.profile-page__current-user__hotels
-    -if @user_hotels != []
+    -if @user_hotels != [] && user_id_equals_current_user?(@user)
       %div.profile-page__current-user__hotels__head Added hotels
       -@user_hotels.each do |hotel|
         %div.profile-page__current-user__hotels__text

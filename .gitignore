@@ -10,7 +10,7 @@
 /tmp
 
 # Игнорирование прочих ненужных файлов.
-/public/uploads
+public/uploads
 Gemfile
 Gemfile.lock
 database.yml
