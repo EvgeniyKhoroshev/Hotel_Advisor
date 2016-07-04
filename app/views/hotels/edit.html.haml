@@ -1,13 +1,13 @@
-%div.main-page__head-line
-  %div.article__center Edit hotel
-  %div.edit-page__forms
-    = simple_form_for (@hotel) do |f|
-      =f.input :title, :label => 'Title'
-      =f.input :rating, :label => 'Rating'
-      =f.input :breakfast_included, as: :radio_buttons, collection: ['With','Without'], :label => 'Breakfast'
-      =f.input :price, :label => 'Price'
-      =f.input :address, :label => 'Address'
-      =f.input :room_description, :as => 'text', :label => 'Room description', :input_html => {:style => 'resize:none'}
-      =f.input :photo, :as => 'file', :label =>'Edit photo'
-      =f.button :submit, :value => 'Edit hotel'
-    %p#back= link_to 'Back', current_user
+%div.article__center
+  %p Edit hotel
+%div.edit-page__forms
+  = simple_form_for (@hotel) do |f|
+    =f.input :title, :label => 'Title'
+    =f.input :rating, :label => 'Rating'
+    =f.input :breakfast_included, as: :radio_buttons, collection: ['With','Without'], :label => 'Breakfast'
+    =f.input :price, :label => 'Price'
+    =f.input :address, :label => 'Address'
+    =f.input :room_description, :as => 'text', :label => 'Room description', :input_html => {:style => 'resize:none'}
+    =f.input :photo, :as => 'file', :label =>'Edit photo'
+    =f.button :submit, :value => 'Edit hotel'
+  %p#back= link_to 'Back', current_user

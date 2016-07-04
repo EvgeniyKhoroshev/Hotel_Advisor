@@ -1,15 +1,17 @@
-%div.main-page__head-line
-  %div.article__center About hotel
-  %p.title_for_out= 'Hotel title: '+@hotel.title
-  %p.title_for_out= 'Hotel rating: '+@hotel.rating
-  %p.title_for_out= @hotel.breakfast_included + ' breakfast'
-  %p.title_for_out= 'Room description: '+@hotel.room_description
-  %p.title_for_out= 'Price of room: '+@hotel.price.to_s
-  %p.title_for_out= 'Address of hotel: '+@hotel.address
+%div.article__center
+  %p About hotel
+%div.profile-page__current-hotel
+  %div.profile-page__current-hotel__text
+    %p= 'Hotel title: '+@hotel.title
+    %p= 'Hotel rating: '+@hotel.rating
+    %p= @hotel.breakfast_included + ' breakfast'
+    %p= 'Room description: '+@hotel.room_description
+    %p= 'Price of room: '+@hotel.price.to_s
+    %p= 'Address of hotel: '+@hotel.address
   -if @hotel.photo.url == nil
-    %p.title_for_out= image_tag 'default_photo.jpg'
+    = image_tag 'default_photo.jpg', :class => 'profile-page__current-hotel__photo'
   -else
-    %p.title_for_out= image_tag @hotel.photo.url
+    = image_tag @hotel.photo.url, :class => 'profile-page__current-hotel__photo'
 
-  %p#back= link_to 'Back',  all_hotel_path
+%p#back= link_to 'Back',  all_hotel_path
 

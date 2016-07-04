@@ -23,7 +23,6 @@
 
 .users {
   list-style: none;
-  margin: 0;
   li {
     overflow: auto;
     padding: 10px 0;
@@ -34,37 +33,67 @@
   }
 }
 
-.user{
-  font-family: "Century Gothic";
+.profile-page__current-user{
+  width: 1000px;
+  height: 400px;
+  margin: 20px auto;
+  border: 1px solid #e7e7e7;
+  background: #FFFFFF;
 }
-
-.user_inform{
-  position: absolute;
-  left:300px;
-  bottom: 78px;
-  font-size: 14pt;
+.profile-page__current-user__photo{
+  float: left;
+  width: 150px;
+  height: 150px;
+  margin-top:5px;
+  margin-left:5px;
+  border: 1px solid #e7e7e7;
+}
+.profile-page__current-user__text{
+  float: left;
+  margin-top:5px;
+  margin-left:10px;
+  font-family: Oswald,Tahoma;
+  font-size:14px;
+}
+.profile-page__current-user__buttons{
+  float: right;
+  margin-top:5px;
+  margin-right:10px;
+}
+.profile-page__current-user__hotels{
+  float:right;
+  width: 800px;
+  height: 250px;
+  margin-top:5px;
+  margin-right:5px;
+  border: 1px solid #e7e7e7;
+}
+.profile-page__current-user__hotels__text{
+  text-align: right;
+  font-family: Oswald,Tahoma;
+  font-size:20px;
+  margin-right:20px;
+}
+.profile-page__current-user__hotels__head{
+  font-family: Oswald,Tahoma;
+  font-size:22px;
   text-align: center;
 }
-
-.user_hotels{
-  position: absolute;
-  font-size: 14pt;
-  text-align: center;
-  left:900px;
-  top:50px
-}
-
 //---------pagination-----------
 
 .pagination {
   font-size: 13px;
-  float: right;
+  text-align: center;
   margin: 0;
   padding: 3px 0 4px;
 }
 .pagination a,
 .pagination span {
   padding: 3px 3px 2px;
+}
+.pagination li{
+  list-style-type: none;
+  display: inline-block;
 }
 .pagination .disabled {
   background:none repeat scroll 0 0 transparent;

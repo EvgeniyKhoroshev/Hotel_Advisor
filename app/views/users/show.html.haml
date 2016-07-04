@@ -1,30 +1,31 @@
-%div.user
-  %div.user_inform
-    %h1
-      %br
-        %br
-      %div.alert_container
-        -flash.each do |key,value|
-          %div.alert_success= value
-    %h3 Current user
+-#%div.user
+-#  %div.user_inform
+-#    %h1
+-#      %br
+-#        %br
+-#      %div.alert_container
+-#        -flash.each do |key,value|
+-#          %div.alert_success= value
+%div.profile-page__current-user
+  -if @user.photo.url == nil
+    = image_tag 'default_user_photo.png', :class => 'profile-page__current-user__photo'
+  -else
+    = image_tag @user.photo.url, :class => 'profile-page__current-user__photo'
+  %div.profile-page__current-user__text
     %p= @user.name + ' ' + @user.surname
     %p= @user.email
-    -if @user.photo.url == nil
-      %p= image_tag 'default_user_photo.png'
-    -else
-      %p= image_tag @user.photo.url
-    %h4= link_to 'Add new hotel', new_hotel_path
     -if current_user.admin?
       %p Administrator
+  %div.profile-page__current-user__buttons
+    %h4= link_to 'Add new hotel', new_hotel_path
+    -if current_user.admin?
       %p= link_to 'Show all users', users_path
-    %p= link_to 'Back', root_path
-    %br
-      %br
-  %div.user_hotels
+  %div.profile-page__current-user__hotels
     -if @user_hotels != nil
-      %h3 Added hotels
+      %div.profile-page__current-user__hotels__head Added hotels
       -@user_hotels.each do |hotel|
-        %h4= hotel.title
-        %p= link_to 'Edit', edit_hotel_path(hotel)
-        %p= link_to 'Delete', hotel_path(hotel), method: :delete, data: {confirm: 'Are you sure ?'}
+        %div.profile-page__current-user__hotels__text
+          = hotel.title
+          = link_to(image_tag('options-icon.png'), edit_hotel_path(hotel))
+          = link_to(image_tag('delete-icon.png'), hotel_path(hotel), method: :delete, data: {confirm: 'Are you sure ?'})
       = will_paginate @user_hotels
