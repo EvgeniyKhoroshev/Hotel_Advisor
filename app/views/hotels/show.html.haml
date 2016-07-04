@@ -8,10 +8,11 @@
     %p= 'Room description: '+@hotel.room_description
     %p= 'Price of room: '+@hotel.price.to_s
     %p= 'Address of hotel: '+@hotel.address
+    %p= 'User which added: '+find_user_by_id(@hotel.user_id).email
   -if @hotel.photo.url == nil
-    = image_tag 'default_photo.jpg', :class => 'profile-page__current-hotel__photo'
+    = image_tag 'default_hotel_photo.jpg', :class => 'profile-page__current-hotel__photo'
   -else
     = image_tag @hotel.photo.url, :class => 'profile-page__current-hotel__photo'
 
-%p#back= link_to 'Back',  all_hotel_path
+%p#back= link_to 'Back',  all_hotels_path
 

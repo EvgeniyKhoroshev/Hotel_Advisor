@@ -8,7 +8,7 @@
           =link_to(image_tag('more-icon.png', class:'hotels-article__image-more'), hotel_path(hotel))
           -if hotel.photo.url == nil
             %div.hotels-article__image
-              =link_to(image_tag('default_photo.jpg', class:'hotels-article__image'), hotel_path(hotel))
+              =link_to(image_tag('default_hotel_photo.jpg', class:'hotels-article__image'), hotel_path(hotel))
           -else
             %div.hotels-article__image
               =link_to(image_tag(hotel.photo.url, class:'hotels-article__image'), hotel_path(hotel))

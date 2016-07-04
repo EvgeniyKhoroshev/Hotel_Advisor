@@ -25,7 +25,7 @@
                 <div class = 'main-head__sign-up-button'><%= link_to 'Profile', current_user %></div>
               </li>
               <li class = 'main-head__sign-up'>
-                <div class = 'main-head__sign-up-button'><%= link_to 'All Hotels', all_hotel_path %></div>
+                <div class = 'main-head__sign-up-button'><%= link_to 'All Hotels', all_hotels_path %></div>
               </li>
               <div class="main-head__name">
                 <%= current_user.name + ' ' + current_user.surname %>
@@ -38,7 +38,7 @@
                 <div class = 'main-head__sign-up-button'><%= link_to 'Sign Up', signup_path %></div>
               </li>
               <li class = 'main-head__sign-up'>
-                <div class = 'main-head__sign-up-button'><%= link_to 'All Hotels', all_hotel_path %></div>
+                <div class = 'main-head__sign-up-button'><%= link_to 'All Hotels', all_hotels_path %></div>
               </li>
           <% end %>
         </ul>

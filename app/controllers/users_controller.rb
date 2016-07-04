@@ -2,9 +2,8 @@ class UsersController < ApplicationController
 
   before_action :signed_in_user, only: [:index, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
-  before_action :show_users_by_admin, only: :index
   before_action :users_not_signup, only: [:new, :create]
-  before_action :admin_user, only: :destroy
+  before_action :signed_in_admin, only: [:index, :destroy]
 
   def index
     @users = User.paginate(page: params[:page], :per_page => 10)
@@ -55,6 +54,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def permitted_params
       params.require(:user).permit(:name, :surname, :email, :photo, :password, :password_confirmation)
   end
@@ -71,30 +71,14 @@ class UsersController < ApplicationController
     redirect_to root_path unless current_user?(@user)
   end
 
-  def show_users_by_admin
-    if !current_user.admin?
-      redirect_to root_path
-    end
-  end
-
   def users_not_signup
     if signed_in?
       redirect_to root_path
     end
   end
 
-  def admin_user
-    redirect_to(root_url) unless current_user.admin?
-  end
-
-  def find_all_by_user_email(email)
-    find_hotels = []
-    Hotel.all.each do |h|
-      if h.user_email == email
-        find_hotels.push(h)
-      end
-    end
-    find_hotels.paginate(page: params[:page], :per_page => 7)
+  def signed_in_admin
+    redirect_to root_path unless current_user.admin?
   end
 
 end
