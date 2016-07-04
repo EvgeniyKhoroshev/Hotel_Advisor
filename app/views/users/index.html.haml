@@ -1,8 +1,8 @@
-%h1.article__center
-  %p All users
-%div.alert_container
-  -flash.each do |key,value|
-    %div.alert_error= value
+-#%h1.article__center
+-#  %p All users
+-#%div.alert_container
+-#  -flash.each do |key,value|
+-#    %div.alert_error= value
 = will_paginate @users
 %ul.users
   - @users.each do |user|
