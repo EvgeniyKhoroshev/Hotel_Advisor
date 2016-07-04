@@ -21,7 +21,7 @@
     -if current_user.admin?
       %p= link_to 'Show all users', users_path
   %div.profile-page__current-user__hotels
-    -if @user_hotels != nil
+    -if @user_hotels != []
       %div.profile-page__current-user__hotels__head Added hotels
       -@user_hotels.each do |hotel|
         %div.profile-page__current-user__hotels__text

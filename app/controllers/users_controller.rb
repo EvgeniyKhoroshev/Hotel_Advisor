@@ -16,14 +16,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id]);
-    @user_hotels = find_all_by_user_email(Hotel.paginate(page: params[:page], :per_page => 7))
+    @user_hotels = find_all_by_user_email(current_user.email)
+    # fail
   end
 
   def create
     @user = User.new permitted_params
     if @user.save
       sign_in @user
-      flash[:success] = 'Registration complete!'
+      flash.now[:success] = 'Registration complete!'
       redirect_to @user
     else
       render 'new'
@@ -87,13 +88,14 @@ class UsersController < ApplicationController
     redirect_to(root_url) unless current_user.admin?
   end
 
-  def find_all_by_user_email(hotels)
+  def find_all_by_user_email(email)
     find_hotels = []
-    hotels.each do |h|
-      if h.user_email == current_user.email
+    Hotel.all.each do |h|
+      if h.user_email == email
         find_hotels.push(h)
       end
     end
+    find_hotels.paginate(page: params[:page], :per_page => 7)
   end
 
 end
