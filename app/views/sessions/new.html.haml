@@ -1,0 +1,17 @@
+%div
+  %br
+    %br
+  %h1#pages_header Sign in
+  =simple_form_for(:session, url: sessions_path) do |f|
+    =f.input :email, :label => 'Email'
+    =f.input :password, :label => 'Password'
+    =f.button :submit, :value => 'Sign in'
+  %br
+    %br
+  %p#caption= 'New user?'
+  %p.signup_links= link_to 'Sign up now!', signup_path
+  %br
+  %h1
+    %div.alert_container
+      -flash.each do |key,value|
+        %div.alert_error= value

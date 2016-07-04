@@ -1,0 +1,18 @@
+%h1.article__center
+  %p All users
+%div.alert_container
+  -flash.each do |key,value|
+    %div.alert_error= value
+= will_paginate @users
+%ul.users
+  - @users.each do |user|
+    %li
+      -if user.photo.url == nil
+        =image_tag 'default_user_photo.png', :class => 'profile-page__current-user__photo'
+        %p= user.name + ' ' + user.surname + ', Admin: '+ user.admin.to_s
+        %p= link_to 'Delete', user, method: :delete, data: { confirm: "Are you sure?" }
+      -else
+        = image_tag user.photo.url, :class => 'profile-page__current-user__photo'
+        %p= user.name + ' ' + user.surname + ', Admin: '+ user.admin.to_s
+        %p= link_to 'Delete', user, method: :delete, data: { confirm: "Are you sure?" }
+= will_paginate @users

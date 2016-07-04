@@ -10,8 +10,9 @@
 /tmp
 
 # Игнорирование прочих ненужных файлов.
-Gemfile.lock
+/public/uploads
 Gemfile
+Gemfile.lock
 database.yml
 doc/
 *.swp

@@ -7,8 +7,45 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="main-page">
-
-<%= yield %>
+  <div class="main-page__head-line">
+    <div class="main-page__first-line">
+      <div class="main-head__logo">
+        <div class="main-logo"><%= link_to(image_tag('logo.png', class:'main-logo__img'), root_path) %></div>
+      </div>
+      <nav>
+        <ul class="main-page__header">
+          <% if signed_in? %>
+              <li class = 'main-head__sign-up'>
+                <div class = 'main-head__sign-up-button'><%= link_to 'Sign out', signout_path, method: 'delete' %></div>
+              </li>
+              <li class = 'main-head__sign-up'>
+                <div class = 'main-head__sign-up-button'><%= link_to 'Settings', edit_user_path(current_user) %></div>
+              </li>
+              <li class = 'main-head__sign-up'>
+                <div class = 'main-head__sign-up-button'><%= link_to 'Profile', current_user %></div>
+              </li>
+              <li class = 'main-head__sign-up'>
+                <div class = 'main-head__sign-up-button'><%= link_to 'All Hotels', all_hotel_path %></div>
+              </li>
+              <div class="main-head__name">
+                <%= current_user.name + ' ' + current_user.surname %>
+              </div>
+          <% else %>
+              <li class = 'main-head__sign-up'>
+                <div class = 'main-head__sign-up-button'><%= link_to 'Sign In', signin_path %></div>
+              </li>
+              <li class = 'main-head__sign-up'>
+                <div class = 'main-head__sign-up-button'><%= link_to 'Sign Up', signup_path %></div>
+              </li>
+              <li class = 'main-head__sign-up'>
+                <div class = 'main-head__sign-up-button'><%= link_to 'All Hotels', all_hotel_path %></div>
+              </li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <%= yield %>
 
 </body>
 </html>

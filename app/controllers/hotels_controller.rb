@@ -1,10 +1,5 @@
 class HotelsController < ApplicationController
-
-
-  def index
-    @hotels = Hotel.all
-  end
-
+  
   def all
     @hotels = Hotel.all
   end
@@ -19,8 +14,9 @@ class HotelsController < ApplicationController
 
   def create
     @hotel = Hotel.new(permitted_params)
+    @hotel.user_email = current_user.email
     if @hotel.save
-      redirect_to all_hotel_path
+      redirect_to current_user
     else
       render :new
     end
@@ -33,7 +29,7 @@ class HotelsController < ApplicationController
   def update
     @hotel = Hotel.find(params[:id])
     if @hotel.update permitted_params
-      redirect_to all_hotel_path
+      redirect_to current_user
     else
       render :edit
     end
@@ -41,7 +37,7 @@ class HotelsController < ApplicationController
 
   def destroy
     hotel = Hotel.find(params[:id]).destroy
-    redirect_to all_hotel_path
+    redirect_to current_user
   end
 
   private
