@@ -1,0 +1,18 @@
+%div.article__center
+  %p Hotels
+%div.main-page__line
+  %div.cards
+    -@hotels.each do |hotel|
+      %div.hotels
+        %div.hotels-article
+          =link_to(image_tag('more-icon.png', class:'hotels-article__image-more'), hotel_path(hotel))
+          -if hotel.photo.url == nil
+            %div.hotels-article__image
+              =link_to(image_tag('default_photo.jpg', class:'hotels-article__image'), hotel_path(hotel))
+          -else
+            %div.hotels-article__image
+              =link_to(image_tag(hotel.photo.url, class:'hotels-article__image'), hotel_path(hotel))
+          %div.hotels-article-text
+            %div.hotels-article-text__head= hotel.title + ' ' + hotel.address
+            %hr
+            %div.hotels-article-text__content= hotel.room_description

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#index'
 
-  get 'all_hotel' => 'hotels#all'
+  get 'all_hotel' => 'hotels#index'
   get 'signup' => 'users#new'
   get 'signin' => 'sessions#new'
   delete 'signout' => 'sessions#destroy'

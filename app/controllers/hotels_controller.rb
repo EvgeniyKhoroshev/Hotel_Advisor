@@ -1,6 +1,6 @@
 class HotelsController < ApplicationController
   
-  def all
+  def index
     @hotels = Hotel.all
   end
 
@@ -14,7 +14,7 @@ class HotelsController < ApplicationController
 
   def create
     @hotel = Hotel.new(permitted_params)
-    @hotel.user_email = current_user.email
+    @hotel.user_id = current_user.id
     if @hotel.save
       redirect_to current_user
     else

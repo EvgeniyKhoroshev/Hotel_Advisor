@@ -39,4 +39,8 @@ module SessionsHelper
     session[:return_to] = request.url if request.get?
   end
 
+  def user_id_equals_current_user?(user)
+    user.id == current_user.id
+  end
+
 end
