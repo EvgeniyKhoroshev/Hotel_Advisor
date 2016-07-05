@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :hotels
+  resources :hotels do
+    resources :posts, only: [:new, :create, :destroy]
+  end
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
