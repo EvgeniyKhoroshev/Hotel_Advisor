@@ -8,11 +8,35 @@
     %p= 'Room description: '+@hotel.room_description
     %p= 'Price of room: '+@hotel.price.to_s
     %p= 'Address of hotel: '+@hotel.address
-    %p= 'User which added: '+find_user_by_id(@hotel.user_id).email
+    %p= 'Record created by '+find_user_by_id(@hotel.user_id).email
   -if @hotel.photo.url == nil
     = image_tag 'default_hotel_photo.jpg', :class => 'profile-page__current-hotel__photo'
   -else
     = image_tag @hotel.photo.url, :class => 'profile-page__current-hotel__photo'
+%div.profile-page__current-hotel
+  %div.profile-page__current-hotel__text
+    %p='Comments:'
+    %hr
+    -if @posts == []
+      %p= 'This hotel has no comments =( .'
+      %p= 'Would yours be the first?'
+    -else
+      -@posts.each do |c|
+        %p='Title :'
+        %p=c.title
+        %p='Comment :'
+        %p=c.body
+        %p='Author :'
+        %p= get_user_by_id(c.user_id).email
+        %p= c.created_at
+      =will_paginate @posts
+    -if signed_in?
+      =simple_form_for [@hotel, @post] do |f|
+        =f.input :title, :label => 'Title of post'
+        =f.text_area :body, :label => 'Text of post'
+        =f.button :submit, :value => 'Add comment'
+    -else
+      %p='Only signed up users can post comments.'
+      %p.signup_links= link_to 'Sign in', signin_path
 
-%p#back= link_to 'Back',  all_hotels_path
-
+    %p#back= link_to 'Back',  all_hotels_path

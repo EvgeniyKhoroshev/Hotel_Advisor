@@ -1,14 +1,9 @@
 Rails.application.routes.draw do
 
-  namespace :api do
-  namespace :v1 do
-    get 'user_hotels/index'
-    end
+  resources :hotels do
+    resources :posts, only: [:new, :destroy, :create]
   end
 
-  get 'user_hotels/index'
-
-  resources :hotels
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 

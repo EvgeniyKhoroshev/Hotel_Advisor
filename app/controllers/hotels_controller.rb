@@ -1,11 +1,19 @@
 class HotelsController < ApplicationController
-  
+
   def index
     @hotels = Hotel.all
   end
 
   def show
     @hotel = Hotel.find(params[:id])
+    if @hotel.posts.to_a != []
+      @posts = @hotel.posts.to_a.paginate(page: params[:page], :per_page => 10)
+      @post = Post.new
+    else
+      @posts = []
+      @post = Post.new
+
+    end
   end
 
   def new
