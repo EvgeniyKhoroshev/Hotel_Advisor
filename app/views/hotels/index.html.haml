@@ -16,3 +16,5 @@
             %div.hotels-article-text__head= hotel.title + ' ' + hotel.address
             %hr
             %div.hotels-article-text__content= hotel.room_description
+            %hr
+            %div.hotels-article-text__content= 'Added by: '+get_user_by_id(hotel.user_id).email

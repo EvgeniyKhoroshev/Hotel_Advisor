@@ -3,4 +3,5 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include Admin::HotelsHelper
   include HotelsHelper
+  include PostsHelper
 end
