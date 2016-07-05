@@ -1,0 +1,67 @@
+.cards{
+  width:960px;
+  height: 650px;
+  margin:20px auto 0px;
+  border: 1px solid #e7e7e7;
+  background-color: #ffffff;
+}
+.hotels{
+  float:left;
+  margin-left:50px;
+  margin-top: 10px;
+  height:300px;
+  width:252px;
+  border: 1px solid #e7e7e7;
+  background-color: #ffffff;
+}
+.hotels-article{
+
+}
+.hotels-article__image{
+  height:150px;
+  width:250px;
+  z-index: 10;
+  background-color:#3B3B3B;
+}
+.hotels-article__image-more{
+  position: absolute;
+  margin-top: 45px;
+  margin-left: 95px;
+  z-index: 20;
+}
+.hotels-article-text{
+  width:200px;
+  margin:0 auto;
+}
+.hotels-article-text__head{
+  margin-top:10px;
+  color:#000000;
+  font-size:16px;
+}
+.hotels-article-text__content{
+  margin-top:10px;
+  color:#8f8f8f;
+  font-size:12px;
+}
+.profile-page__current-hotel{
+  width: 1000px;
+  height: 325px;
+  margin: 20px auto;
+  border: 1px solid #e7e7e7;
+  background: #FFFFFF;
+}
+.profile-page__current-hotel__photo{
+  float: right;
+  width: 550px;
+  height: 300px;
+  margin-top:10px;
+  margin-right:10px;
+  border: 1px solid #e7e7e7;
+}
+.profile-page__current-hotel__text{
+  float: left;
+  margin-top:5px;
+  margin-left:10px;
+  font-family: Oswald,Tahoma;
+  font-size:14px;
+}

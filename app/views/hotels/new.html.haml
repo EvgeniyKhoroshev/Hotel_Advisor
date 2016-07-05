@@ -1,6 +1,6 @@
 %div.article__center
   %p Add new hotel
-%div.add
+%div.form-container__hotels
   = simple_form_for (@hotel) do |f|
     =f.input :title, :label => 'Title', :class => 'article_center'
     =f.input :rating, :label => 'Rating'
@@ -10,4 +10,4 @@
     =f.input :room_description, :as => 'text', :label => 'Room description', :input_html => {:style => 'resize:none'}
     =f.input :photo, :as => 'file', :label =>'Add photo'
     =f.button :submit, :value => 'Add hotel'
-  %p#back= link_to 'Back', current_user
+  %p= link_to 'Back', current_user
