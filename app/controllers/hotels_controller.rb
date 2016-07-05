@@ -1,7 +1,7 @@
 class HotelsController < ApplicationController
 
   def index
-    @hotels = Hotel.all
+    @hotels = Hotel.paginate(page: params[:page], :per_page => 10)
   end
 
   def show
