@@ -1,7 +1,7 @@
 class HotelsController < ApplicationController
 
   def index
-    @hotels = Hotel.paginate(page: params[:page], :per_page => 10)
+    @hotels = Hotel.paginate(page: params[:page], :per_page => 6)
   end
 
   def show
@@ -50,6 +50,6 @@ class HotelsController < ApplicationController
 
   private
   def permitted_params
-    params.require(:showhotels).permit(:title, :rating, :breakfast_included, :room_description, :photo, :price, :address)
+    params.require(:hotel).permit(:title, :rating, :breakfast_included, :room_description, :photo, :price, :address)
   end
 end
