@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
 
   before_action :signed_in_user, only: [:index, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
@@ -6,26 +6,26 @@ class UsersController < ApplicationController
   before_action :signed_in_admin, only: [:index, :destroy]
 
   def index
-    @users = User.paginate(page: params[:page], :per_page => 10)
+    users = User.all
+    render json: users, status: :ok
   end
 
   def new
-    @user = User.new
+    user = User.new
   end
 
   def show
-    @user = User.find(params[:id])
-    @user_hotels = @user.hotel.to_a.paginate(page: params[:page], :per_page => 7)
+    user = User.find(params[:id])
+    render json: user, status: :ok
   end
 
   def create
-    @user = User.new permitted_params
-    if @user.save
-      sign_in @user
-      flash.now[:success] = 'Registration complete!'
-      redirect_to @user
+    user = User.new permitted_params
+    if user.save
+      sign_in user
+      render json: user, status: :ok
     else
-      render 'new'
+      render json: user.errors, status: :unprocessable_entity
     end
   end
 
@@ -34,23 +34,21 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update permitted_params
-      flash[:success] = 'Profile updated'
-      redirect_to @user
+    if user.update permitted_params
+      render nothing, status: :ok
     else
-      render 'edit'
+      render json: user.errors, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @users = User.paginate(page: params[:page], :per_page => 10)
-    user = User.find(params[:id])
+    user = User.find_by_id(params[:id])
     if user.admin?
-      flash[:error] = "Administrator can't delete himself"
+      render nothing, status: :unprocessable_entity
     else
       user.destroy
+      render nothing, status: :ok
     end
-    redirect_to users_path
   end
 
   private
@@ -61,14 +59,13 @@ class UsersController < ApplicationController
 
   def signed_in_user
     unless signed_in?
-      store_location
-      redirect_to signin_path, notice: 'Please sign in.'
+      render nothing, status: :unprocessable_entity
     end
   end
 
   def correct_user
     @user = User.find(params[:id])
-    redirect_to root_path unless current_user?(@user)
+    render nothing, status: :unprocessable_entity unless current_user?(@user)
   end
 
   def users_not_signup

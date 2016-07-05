@@ -3,10 +3,10 @@ namespace :db do
   task populate: :environment do
     9.times do |n|
       title  = Faker::Name.first_name
-      rating = "12-#{n}"
+      rating = "12#{n}"
       breakfast_included = 'With'
       room_description = Faker::Name.name
-      photo = "/public/uploads/hotel/photo/-#{n+1}/-#{n+1}.jpg"
+      photo = "/public/uploads/hotel/photo/#{n+1}/#{n+1}.jpg"
       price = 100 + (n+1)
       address = Faker::Name.last_name
       user_id = 1
