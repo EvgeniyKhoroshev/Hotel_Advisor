@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  post '/rate' => 'rater#create', :as => 'rate'
+
   resources :hotels do
     resources :posts, only: [:new, :destroy, :create]
   end

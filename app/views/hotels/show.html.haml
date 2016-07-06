@@ -3,12 +3,12 @@
 %div.profile-page__current-hotel
   %div.profile-page__current-hotel__text
     %p= 'Hotel title: '+@hotel.title
-    %p= 'Hotel rating: '+@hotel.rating
     %p= @hotel.breakfast_included + ' breakfast'
     %p= 'Room description: '+@hotel.room_description
     %p= 'Price of room: '+@hotel.price.to_s
     %p= 'Address of hotel: '+@hotel.address
     %p= 'Record created by '+find_user_by_id(@hotel.user_id).email
+    %p= rating_for @hotel, 'hotel_rating', star: 10, disable_after_rate: false, cancel: true, half_show: true, cancel_place: 'right'
   -if @hotel.photo.url == nil
     = image_tag 'default_hotel_photo.jpg', :class => 'profile-page__current-hotel__photo'
   -else
