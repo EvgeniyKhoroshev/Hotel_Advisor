@@ -7,6 +7,7 @@ class Hotel < ActiveRecord::Base
   ratyrate_rateable 'hotel_rating'
 
   validates :title,:breakfast_included,:room_description, :address, presence: true, length: {minimum:3};
+  validates :price, presence: true
 
   mount_uploader :photo, HotelPictureUploader
 end
