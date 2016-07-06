@@ -1,12 +1,12 @@
-%br
-  %br
-%h1.pages_caprions Create new account
-=simple_form_for (@user) do |f|
-  =f.input :name, :label => 'Name'
-  =f.input :surname, :label => 'Surname'
-  =f.input :email, :label => 'Email'
-  =f.input :password, :label => 'Password'
-  =f.input :password_confirmation, :label => 'Confirm password'
-  =f.input :photo, :as => 'file', :label => 'Upload photo'
-  =f.button :submit, :value => 'Create'
+%div.article__center
+  %p Create new account
+  %div.form-container__users
+    =simple_form_for (@user) do |f|
+      =f.input :name, :label => 'Name'
+      =f.input :surname, :label => 'Surname'
+      =f.input :email, :label => 'Email'
+      =f.input :password, :label => 'Password'
+      =f.input :password_confirmation, :label => 'Confirm password'
+      =f.input :photo, :as => 'file', :label => 'Upload photo'
+      =f.button :submit, :value => 'Create'
 

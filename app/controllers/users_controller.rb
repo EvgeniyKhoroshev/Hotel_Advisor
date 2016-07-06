@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id]);
+    @user = User.find(params[:id])
     @user_hotels = @user.hotel.to_a.paginate(page: params[:page], :per_page => 7)
   end
 

@@ -22,6 +22,9 @@ gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'active_model_serializers'
+gem 'ratyrate'
+gem 'bower'
+gem 'jquery-turbolinks'
 
 group :test do
   gem 'selenium-webdriver', '>=2.35.1'
