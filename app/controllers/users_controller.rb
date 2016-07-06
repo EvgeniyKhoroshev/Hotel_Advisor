@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   private
 
   def permitted_params
-      params.require(:hotel).permit(:name, :surname, :email, :photo, :password, :password_confirmation)
+      params.require(:user).permit(:name, :surname, :email, :photo, :password, :password_confirmation)
   end
 
   def signed_in_user
