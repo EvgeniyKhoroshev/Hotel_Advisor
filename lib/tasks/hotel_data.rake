@@ -3,7 +3,6 @@ namespace :db do
   task populate: :environment do
     9.times do |n|
       title  = Faker::Name.first_name
-      rating = "12#{n}"
       breakfast_included = 'With'
       room_description = Faker::Name.name
       photo = "/public/uploads/hotel/photo/#{n+1}/#{n+1}.jpg"
@@ -11,7 +10,6 @@ namespace :db do
       address = Faker::Name.last_name
       user_id = 1
       Hotel.create!(title: title,
-                   rating: rating,
                    breakfast_included: breakfast_included,
                    room_description: room_description,
                    photo: photo,
