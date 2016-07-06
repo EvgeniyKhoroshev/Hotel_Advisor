@@ -30,7 +30,7 @@ class Api::V1::HotelsController < ApplicationController
 
   def update
     hotel = Hotel.find(params[:id])
-    if @hotel.update permitted_params
+    if hotel.update permitted_params
       render nothing, status: :ok
     else
       render json: hotel.errors, status: :unprocessable_entity

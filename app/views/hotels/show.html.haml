@@ -21,14 +21,16 @@
       %p= 'This hotel has no comments =( .'
       %p= 'Would yours be the first?'
     -else
-      -@posts.each do |c|
+      -@posts.each do |post|
         %p='Title :'
-        %p=c.title
+        %p=post.title
         %p='Comment :'
-        %p=c.body
+        %p=post.body
         %p='Author :'
-        %p= get_user_by_id(c.user_id).email
-        %p= c.created_at
+        %p= get_user_by_id(post.user_id).email
+        %p= post.created_at.strftime('%e %b %Y, %H:%M %p')
+        -if signed_in? && (current_user.email == find_user_by_id(post.user_id).email || current_user.admin?)
+          = link_to((image_tag 'delete-icon.png'), hotel_post_path(post.hotel, post), method: :delete, data: {confirm: 'Are you sure?'})
       =will_paginate @posts
     -if signed_in?
       =simple_form_for [@hotel, @post] do |f|

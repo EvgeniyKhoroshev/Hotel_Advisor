@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
+
   def new
     @post = Post.new
   end
+
   def create
     @hotel = Hotel.find(params[:hotel_id])
     @post = Post.create(permitted_params)
@@ -14,8 +16,17 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    hotel = Hotel.find(params[:hotel_id])
+    post = hotel.posts.find(params[:id])
+    post.destroy
+    redirect_to hotel
+  end
+
   private
+
   def permitted_params
     params.require(:post).permit(:title, :body, :hotel_id, :user_id)
   end
+
 end

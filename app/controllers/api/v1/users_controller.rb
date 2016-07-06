@@ -70,12 +70,12 @@ class Api::V1::UsersController < ApplicationController
 
   def users_not_signup
     if signed_in?
-      redirect_to root_path
+      render nothing, status: :unauthorized
     end
   end
 
   def signed_in_admin
-    redirect_to root_path unless current_user.admin?
+    render nothing, status: :unauthorized unless current_user.admin?
   end
 
 end

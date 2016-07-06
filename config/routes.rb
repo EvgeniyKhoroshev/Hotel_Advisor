@@ -20,7 +20,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :hotels
+      resources :hotels do
+        resources :posts, only: [:new, :destroy, :create, :index]
+      end
       resources :users
       resources :sessions, only: [:new, :create, :destroy]
 
